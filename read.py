@@ -37,7 +37,6 @@ def read_word_search(file_loc, training_data):
     # into an RGB image for Tesseract. 
     word_search = cv2.cvtColor(word_search, cv2.COLOR_BGR2RGB)
 
-    # The word search will be represented as a 2D array
     word_search_matrix = pytesseract.image_to_string(word_search, config=config).split()
     for i in range(0, len(word_search_matrix)):
         word_search_matrix[i] = list(word_search_matrix[i])
