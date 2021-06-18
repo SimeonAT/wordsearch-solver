@@ -25,7 +25,8 @@ def read_word_search(file_loc, training_data):
 
     try:
         # You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter
-        config = r"--tessdata-dir /home/simeon/wordsearch-solver/" + training_data
+        config = r"--tessdata-dir /home/simeon/wordsearch-solver/" + training_data \
+            + " --oem 3 --psm 6"
         word_search = cv2.imread(file_loc)
     except:
         print("Please enter only 1 valid file location.\n")
