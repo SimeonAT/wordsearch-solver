@@ -6,7 +6,7 @@
 *	 https://github.com/tesseract-ocr/tessdata_best
 
 
-## **Description**
+# **Description**
 A program that can solve any word search puzzle. 
 
 
@@ -14,7 +14,7 @@ A program that can solve any word search puzzle.
 The word search will be a 2D array, with each letter in word search in one spot. 
 
 
-## *Pseudocode for the "evaluate()" function* 
+## **Pseudocode for the "evaluate()" function**
 ```
 def evaluate(grid, word, direction): 
 
@@ -37,7 +37,7 @@ def evaluate(grid, word, direction):
     return True 
 ```
 
-## *Pseudocode for the "word_search()" function*
+## **Pseudocode for the "word_search()" function**
 ```
 def word_search(grid, words_to_find):
 
