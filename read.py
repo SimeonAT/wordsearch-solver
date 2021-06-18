@@ -12,7 +12,7 @@ def print_word_search(word_search):
 pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
 # You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter
-config = r"--tessdata-dir /home/simeon/wordsearch-solver/tessdata_best"
+config = r"--tessdata-dir /home/simeon/wordsearch-solver/tessdata_old"
 
 try:
     file_loc = sys.argv[1]
@@ -25,7 +25,7 @@ except:
 word_search = cv2.cvtColor(word_search, cv2.COLOR_BGR2RGB)
 
 # The word search will be represented as a 2D array
-word_search_matrix = pytesseract.image_to_string(word_search).split()
+word_search_matrix = pytesseract.image_to_string(word_search, config=config).split()
 for i in range(0, len(word_search_matrix)):
     word_search_matrix[i] = list(word_search_matrix[i])
 
