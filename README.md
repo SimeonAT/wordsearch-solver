@@ -6,6 +6,7 @@
 *	 https://github.com/tesseract-ocr/tessdata_best
 
 
+## **Description**
 A program that can solve any word search puzzle. 
 
 
