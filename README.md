@@ -1,5 +1,9 @@
 # **Word Search Solver Algorithm**
 
+# **Sources Used**
+*    https://www.youtube.com/watch?v=6DjFscX4I_c
+*    https://realpython.com/python-command-line-arguments/
+*	 https://github.com/tesseract-ocr/tessdata_best
 
 
 A program that can solve any word search puzzle. 

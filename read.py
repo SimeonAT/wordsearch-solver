@@ -4,6 +4,9 @@ import sys
 
 pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
+# You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter
+config = r"--tessdata-dir /home/simeon/wordsearch-solver/tessdata_best"
+
 # The cmd line argument right after the file name will be the file location
 try:
     file_loc = sys.argv[1]
