@@ -5,8 +5,11 @@ import sys
 pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
 # The cmd line argument right after the file name will be the file location
-file_loc = sys.argv[1]
-word_search = cv2.imread(file_loc)
+try:
+    file_loc = sys.argv[1]
+    word_search = cv2.imread(file_loc)
+except:
+    print("Please enter only 1 valid file location.\n")
 
 # PyTesseract uses RGB, OpenCV uses BGR. Change BGR image read by OpenCV
 # into an RGB image for Tesseract. 
