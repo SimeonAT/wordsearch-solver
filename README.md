@@ -4,6 +4,7 @@
 *    https://www.youtube.com/watch?v=6DjFscX4I_c
 *    https://realpython.com/python-command-line-arguments/
 *	 https://github.com/tesseract-ocr/tessdata_best
+*	 https://stackoverflow.com/questions/60066481/recognize-single-characters-on-a-page-with-tesseract
 
 
 # **Description**
