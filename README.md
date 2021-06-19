@@ -5,7 +5,7 @@
 *    https://realpython.com/python-command-line-arguments/
 *	 https://github.com/tesseract-ocr/tessdata_best
 *	 https://stackoverflow.com/questions/60066481/recognize-single-characters-on-a-page-with-tesseract
-
+*	 https://stackoverflow.com/questions/60009533/drawing-bounding-boxes-with-pytesseract-opencv
 
 # **Description**
 A program that can solve any word search puzzle. 
