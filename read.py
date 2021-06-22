@@ -67,8 +67,7 @@ def read_word_search(file_loc, training_data):
             the Tesseract training data folder to utilize.
 
         Returns:
-            a 2D matrix representation of the word search.
-            will return 'False' upon error. """
+            a 2D matrix representation of the word search. """
 
     pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
@@ -92,6 +91,45 @@ def read_word_search(file_loc, training_data):
     return word_search_matrix
 
 
+def use_contours(file_loc, training_data):
+    """ This function utilizes Tesseract to read in a word search and
+        stores it as a 2D array.
+
+        Parameter(s):
+            the file location of the image.
+            the Tesseract training data folder to utilize.
+
+        Returns:
+            a 2D matrix representation of the word search. """
+    pytesseract.pytesseract.tesseract_cmd = "tesseract"
+
+    # You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter
+    config = r"--tessdata-dir /home/simeon/wordsearch-solver/" + training_data \
+            + " --oem 3 --psm 6 load_system_dawg=false load_freq_dawg=false"
+
+    word_search = cv2.imread(file_loc)
+    word_search = cv2.cvtColor(word_search, cv2.COLOR_BGR2RGB)
+
+    word_search_grey = cv2.cvtColor(word_search, cv2.COLOR_BGR2GRAY)
+    word_search_otsu = cv2.threshold(word_search_grey, 0, 255,
+                                     cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+
+    # Get the contours of all the letters and use Tesseract to print each 
+    # letter onto the console. 
+    # 
+    # SOURCES:
+    # - https://stackoverflow.com/questions/60009533
+    #   /drawing-bounding-boxes-with-pytesseract-opencv
+    # - https://docs.opencv.org/4.5.2/d4/d73/tutorial_py_contours_begin.html
+    #
+    contours = cv2.findContours(word_search_grey, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cv2.drawContours(word_search, contours[0], -1, (0, 255, 0), 3)
+    display_image(word_search)
+
+    return
+
+
 if __name__ == "__main__":
-    word_search = read_word_search(sys.argv[1], sys.argv[2])
-    print_word_search(word_search)
+    # word_search = read_word_search(sys.argv[1], sys.argv[2])
+    # print_word_search(word_search)
+    use_contours(sys.argv[1], sys.argv[2])
