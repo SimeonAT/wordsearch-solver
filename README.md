@@ -9,6 +9,9 @@
 *	 https://docs.opencv.org/4.5.2/da/d6e/tutorial_py_geometric_transformations.html
 * 	 https://www.kite.com/python/answers/how-to-catch-and-print-exception-messages-in-python
 *    https://stackoverflow.com/questions/51143458/difference-in-output-with-waitkey0-and-waitkey1/51143586
+*    https://docs.opencv.org/4.5.2/d7/d4d/tutorial_py_thresholding.html
+*    https://docs.opencv.org/4.5.2/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57
+*    https://docs.opencv.org/3.4/d7/dfc/group__highgui.html#ga5628525ad33f52eab17feebcfba38bd7
 
 # **Description**
 A program that can solve any word search puzzle. 
