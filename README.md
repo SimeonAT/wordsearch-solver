@@ -6,6 +6,9 @@
 *	 https://github.com/tesseract-ocr/tessdata_best
 *	 https://stackoverflow.com/questions/60066481/recognize-single-characters-on-a-page-with-tesseract
 *	 https://stackoverflow.com/questions/60009533/drawing-bounding-boxes-with-pytesseract-opencv
+*	 https://docs.opencv.org/4.5.2/da/d6e/tutorial_py_geometric_transformations.html
+* 	 https://www.kite.com/python/answers/how-to-catch-and-print-exception-messages-in-python
+*    https://stackoverflow.com/questions/51143458/difference-in-output-with-waitkey0-and-waitkey1/51143586
 
 # **Description**
 A program that can solve any word search puzzle. 
