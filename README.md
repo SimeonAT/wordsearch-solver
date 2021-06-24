@@ -90,3 +90,5 @@ def word_search(grid, words_to_find):
 *    https://docs.opencv.org/4.5.2/d7/d4d/tutorial_py_thresholding.html
 *    https://docs.opencv.org/4.5.2/d7/d1b/group__imgproc__misc.html#gae8a4a146d1ca78c626a53577199e9c57
 *    https://docs.opencv.org/3.4/d7/dfc/group__highgui.html#ga5628525ad33f52eab17feebcfba38bd7
+*	 https://book.pythontips.com/en/latest/context_managers.html
+*    https://www.w3schools.com/python/ref_string_strip.asp

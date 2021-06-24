@@ -54,7 +54,9 @@ def print_word_search(word_search):
     """ Debugging function that prints the contents of the word
         search matrix in a row major format. """
     for line in word_search:
-        print(line)
+        for letter in line:
+            print(letter, end = " ")
+        print()
     return
 
 
@@ -89,7 +91,36 @@ def read_word_search(file_loc, training_data):
 
     return word_search_matrix
 
+def read_from_file(file_loc, rows, columns):
+    """ This function reads a word search that is stored in a text file.
+        Ideal for word searches that could have been read by PyTesseract.
+
+        Parameter(s):
+            the file location of the text file
+            the number of rows and columns of the word search
+
+        Returns:
+            A 2D array representation of the word search
+
+        Sources Used:
+            https://book.pythontips.com/en/latest/context_managers.html
+            https://www.w3schools.com/python/ref_string_strip.asp """
+
+    with open(file_loc) as word_search_file:
+        word_search = word_search_file.readlines()
+
+    # Convert each line into a list of letters
+    for i in range(0, len(word_search)):
+        # Remove the newlines gathered from readlines()
+        word_search[i] = word_search[i].strip("\n")
+
+        # Remove the extra whitespace created by stripping "\n"
+        word_search[i] = word_search[i].strip()
+
+    return word_search
+
 
 if __name__ == "__main__":
-    word_search = read_word_search(sys.argv[1], sys.argv[2])
+    # word_search = read_word_search(sys.argv[1], sys.argv[2])
+    word_search = read_from_file(sys.argv[1], sys.argv[2], sys.argv[3])
     print_word_search(word_search)
