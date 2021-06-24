@@ -122,6 +122,6 @@ def read_from_file(file_loc, rows, columns):
 
 
 if __name__ == "__main__":
-    # word_search = read_word_search(sys.argv[1], sys.argv[2])
+    word_search = read_word_search(sys.argv[1], sys.argv[2])
     word_search = read_from_file(sys.argv[1], sys.argv[2], sys.argv[3])
     print_word_search(word_search)
