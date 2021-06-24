@@ -10,6 +10,7 @@ To read a word search from a text file:
 
 To read a word search from an image:
     python3 main.py -i [file location] [tesseract executable] [training data]
+
 """
 
 TEXT_FILE = "-f"
@@ -17,7 +18,6 @@ IMAGE = "-i"
 
 if __name__ == "__main__":
     word_search = None
-    print(sys.argv)
 
     try:
         if sys.argv[1] == TEXT_FILE:
@@ -30,4 +30,4 @@ if __name__ == "__main__":
         print(instructions)
         print(error)
 
-    print(word_search)
+    print_word_search(word_search)
