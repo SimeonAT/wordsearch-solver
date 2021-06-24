@@ -60,18 +60,19 @@ def print_word_search(word_search):
     return
 
 
-def read_word_search(file_loc, training_data):
+def read_word_search(file_loc, tesseract_location, training_data):
     """ This function utilizes Tesseract to read in a word search and
         stores it as a 2D array.
 
         Parameter(s):
             the file location of the image.
+            the file location of the Tesseract executable
             the Tesseract training data folder to utilize.
 
         Returns:
             a 2D matrix representation of the word search. """
 
-    pytesseract.pytesseract.tesseract_cmd = "tesseract"
+    pytesseract.pytesseract.tesseract_cmd = tesseract_location
 
     # You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter
     config = r"--tessdata-dir /home/simeon/wordsearch-solver/" + training_data \
