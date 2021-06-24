@@ -60,6 +60,34 @@ def print_word_search(word_search):
     return
 
 
+def print_words(list_of_words):
+    """ Debugging function that prints the list of words
+        to find in the word search. """
+    for word in list_of_words:
+        print(word)
+    return
+
+
+def read_words(file_loc):
+    """ Reads in the list of words to find in the word
+        search from a file.
+
+        Parameter(s):
+            The file location of the list of words
+
+        Returns:
+            The list of words to find in the word search """
+    with open(file_loc, "r") as word_file:
+        list_of_words = word_file.readlines()
+
+        # Remove the '\n' character from each word and make 
+        # each every letter is lowercase for easy comparision with the word search
+        for i in range(0, len(list_of_words)):
+            list_of_words[i] = list_of_words[i].strip("\n").strip().lower()
+
+        return list_of_words
+
+
 def read_word_search(file_loc, tesseract_location, training_data):
     """ This function utilizes Tesseract to read in a word search and
         stores it as a 2D array.
@@ -88,7 +116,10 @@ def read_word_search(file_loc, tesseract_location, training_data):
 
     word_search_matrix = pytesseract.image_to_string(word_search, config=config).split()
     for i in range(0, len(word_search_matrix)):
-        word_search_matrix[i] = list(word_search_matrix[i])
+        # NOTE: Make each letter in the word search lowercase so we can easily compare 
+        # it with the list of words, where each word is all in lowercase letters.
+        # 
+        word_search_matrix[i] = list(word_search_matrix[i].lower())
 
     return word_search_matrix
 
@@ -108,7 +139,7 @@ def read_from_file(file_loc, rows, columns):
             https://book.pythontips.com/en/latest/context_managers.html
             https://www.w3schools.com/python/ref_string_strip.asp """
 
-    with open(file_loc) as word_search_file:
+    with open(file_loc, "r") as word_search_file:
         word_search = word_search_file.readlines()
 
     # Convert each line into a list of letters
@@ -117,9 +148,10 @@ def read_from_file(file_loc, rows, columns):
         word_search[i] = word_search[i].strip("\n")
 
         # Remove the extra whitespace created by stripping "\n"
-        # before converting it to a list
+        # before converting it to a list. In addition,
+        # make sure each letter is lowercase for easy comparisions
         word_search[i] = word_search[i].strip()
-        word_search[i] = list(word_search[i])
+        word_search[i] = list(word_search[i].lower())
 
     return word_search
 
