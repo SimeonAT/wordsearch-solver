@@ -16,18 +16,37 @@ To read a word search from an image:
 TEXT_FILE = "-f"
 IMAGE = "-i"
 
-if __name__ == "__main__":
+def main(arguments):
+    """ This function contains the actual implementation of the word search program,
+        utilizing the functions from the other Python files in order to do so.
+
+        Parameter:
+            The list of command line arguments, excluding the filename. This means that
+            the flag is at index 0 of the "arguments" list.
+
+        Returns:
+            A list containing the (x, y) coordinates of the first letter for
+            each word that it is asked to find. Returns 'False' if the program fails
+            to work. """
     word_search = None
 
     try:
-        if sys.argv[1] == TEXT_FILE:
-            word_search = read_from_file(sys.argv[2], int(sys.argv[3]), int(sys.argv[4]))
-        elif sys.argv[1] == IMAGE:
-            word_search = read_word_search(sys.argv[2], sys.argv[3], sys.argv[4])
+        if arguments[0] == TEXT_FILE:
+            word_search = read_from_file(arguments[1], int(arguments[2]), int(arguments[3]))
+        elif sys.argv[0] == IMAGE:
+            word_search = read_word_search(arguments[1], arguments[2], arguments[3])
     except Exception as error:
         # Resource Used: https://www.kite.com/python/answers/how-to-catch-and-print
         #                -exception-messages-in-python
         print(instructions)
         print(error)
+        return False
 
     print_word_search(word_search)
+
+
+if __name__ == "__main__":
+    # Create an array that has the command line arguments 
+    # except for the filename
+    args = sys.argv[1:]
+    main(args)

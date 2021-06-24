@@ -117,7 +117,9 @@ def read_from_file(file_loc, rows, columns):
         word_search[i] = word_search[i].strip("\n")
 
         # Remove the extra whitespace created by stripping "\n"
+        # before converting it to a list
         word_search[i] = word_search[i].strip()
+        word_search[i] = list(word_search[i])
 
     return word_search
 
