@@ -46,8 +46,8 @@ def evaluate(word_search, word, direction, row, column):
             current_column -= 1
 
         # Check if (current_row, current_column) is out of bounds. If so, return False.
-        if (current_row < 0) || (current_row >= WS_ROWS) || (current_column < 0)
-        || (current_row > WS_COLS):
+        if (current_row < 0) or (current_row >= WS_ROWS) or (current_column < 0) \
+        or (current_row > WS_COLS):
                 return False
 
     return True
