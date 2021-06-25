@@ -17,6 +17,20 @@ To read a word search from an image:
 TEXT_FILE = "-f"
 IMAGE = "-i"
 
+def check_words(words_to_find, found_words):
+    """ Debugging function that prints out the words that have not yet been
+        found by the word search algorithm """
+    words_to_find = set(words_to_find)
+    found_words = set(found_words)
+
+    # The set difference would give us all the words in words_to_find that 
+    # are not in found_words
+    # Got some help here: https://realpython.com/python-sets/
+    # 
+    not_found_words = words_to_find - found_words
+    print(f"Not found words: {not_found_words}")
+
+
 def main(arguments):
     """ This function contains the actual implementation of the word search program,
         utilizing the functions from the other Python files in order to do so.
@@ -48,8 +62,10 @@ def main(arguments):
         return False
 
     list_of_words = read_words(arguments[4])
+    found_words = find_words(word_search, list_of_words)
+    check_words(list_of_words, found_words)
 
-    return find_words(word_search, list_of_words)
+    return found_words
 
 
 if __name__ == "__main__":

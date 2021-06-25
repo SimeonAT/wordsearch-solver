@@ -70,3 +70,5 @@ def word_search(grid, words_to_find):
 *	 https://book.pythontips.com/en/latest/context_managers.html
 *    https://www.w3schools.com/python/ref_string_strip.asp
 *	 https://realpython.com/python-debugging-pdb/
+*	 https://stackoverflow.com/questions/8270092/remove-all-whitespace-in-a-string
+*	 https://realpython.com/python-sets/

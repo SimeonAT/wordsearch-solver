@@ -147,10 +147,12 @@ def read_from_file(file_loc, rows, columns):
         # Remove the newlines gathered from readlines()
         word_search[i] = word_search[i].strip("\n")
 
-        # Remove the extra whitespace created by stripping "\n"
-        # before converting it to a list. In addition,
-        # make sure each letter is lowercase for easy comparisions
-        word_search[i] = word_search[i].strip()
+        # 1. Remove the extra whitespace created by stripping '\n'
+        # 2. Remove all whitespace between each letter by replacing whitespace
+        #    with an empty string; Got some help from this link:
+        #    https://stackoverflow.com/questions/8270092/remove-all-whitespace-in-a-string
+        # 3. Convert all letters to lowercase letters
+        word_search[i] = word_search[i].strip(" ").replace(" ", "")
         word_search[i] = list(word_search[i].lower())
 
     return word_search

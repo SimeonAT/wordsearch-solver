@@ -8,6 +8,9 @@ NORTHEAST = 5
 SOUTHWEST = 6
 SOUTHEAST = 7
 
+# Debug flag that turns on debugging statements when 'True'
+Debug = False
+
 def evaluate(word_search, word, direction, row, column):
     """ Helper function for find_words() that looks to see if
         the word in find is present starting at (row, column) and continuing
@@ -65,6 +68,15 @@ def evaluate(word_search, word, direction, row, column):
         or (current_column > MAX_COL):
                 return False
 
+        if Debug:
+            print("-" * 10)
+            print(f"Word to find: {word}")
+            print(f"MAX_ROW: {MAX_ROW}")
+            print(f"MAX_COL: {MAX_COL}")
+            print(f"current_row: {current_row}")
+            print(f"current_column: {current_column}")
+            print("-" * 10)
+
     return True
 
 
@@ -89,9 +101,11 @@ def find_words(word_search, list_of_words):
     for row in range(0, len(word_search)):
         for column in range(0, len(word_search[row])):
             for word in list_of_words:
-                for direction in [NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST,
-                                  SOUTHEAST, SOUTHWEST]:
-                    if evaluate(word_search, word, direction, row, column):
-                        found[word] = ((row, column), direction)
+                # If the word has already been found, skip it
+                if word not in found.keys():
+                    for direction in [NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST,
+                                      SOUTHEAST, SOUTHWEST]:
+                        if evaluate(word_search, word, direction, row, column):
+                            found[word] = ((row, column), direction)
 
     return found
