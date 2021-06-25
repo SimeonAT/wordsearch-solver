@@ -57,4 +57,15 @@ if __name__ == "__main__":
     # and pass that into the word search algorithm function
     args = sys.argv[1:]
     locations = main(args)
-    print(locations)
+    for key, value in locations.items():
+        coordinates, direction = value
+
+        # Find the actual direction using the integer/direction format used
+        # in word_search.py
+        direction_string = None
+        mini_hash_table = ["NORTH", "SOUTH", "EAST", "WEST", "NORTHWEST",
+                           "NORTHEAST", "SOUTHWEST", "SOUTHEAST"]
+        direction_string = mini_hash_table[direction]
+
+        print(f"The word '{key}' found at coordinate {coordinates}", end = " ")
+        print(f"with direction {direction_string}")

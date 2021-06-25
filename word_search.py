@@ -1,12 +1,12 @@
 """ Constant global variables to indicate which direction to navigate the word search. """
-NORTH = 1
-SOUTH = 2
-EAST = 3
-WEST = 4
-NORTHWEST = 5
-NORTHEAST = 6
-SOUTHWEST = 7
-SOUTHEAST = 8
+NORTH = 0
+SOUTH = 1
+EAST = 2
+WEST = 3
+NORTHWEST = 4
+NORTHEAST = 5
+SOUTHWEST = 6
+SOUTHEAST = 7
 
 def evaluate(word_search, word, direction, row, column):
     """ Helper function for find_words() that looks to see if
