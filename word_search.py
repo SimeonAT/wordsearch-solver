@@ -3,20 +3,21 @@ NORTH = 1
 SOUTH = 2
 EAST = 3
 WEST = 4
+NORTHWEST = 5
+NORTHEAST = 6
+SOUTHWEST = 7
+SOUTHEAST = 8
 
 def evaluate(word_search, word, direction, row, column):
     """ Helper function for find_words() that looks to see if
         the word in find is present starting at (row, column) and continuing
-        in the direction North, South, East, or West.
+        in one of the cardinal directions.
 
         Parameters:
             the word search as a matrix
             the word to find
-            the direction to look in
-              - NORTH = 1
-              - SOUTH = 2
-              - EAST = 3
-              - WEST = 4
+            the direction to look in using the format of the
+                constant variables above
             the row and column of the letter of the word
 
         Returns:
@@ -44,6 +45,18 @@ def evaluate(word_search, word, direction, row, column):
             current_column += 1
         elif direction == WEST:
             current_column -= 1
+        elif direction == NORTHWEST:
+            current_row -= 1
+            current_column -= 1
+        elif direction == NORTHEAST:
+            current_row -= 1
+            current_column += 1
+        elif direction == SOUTHWEST:
+            current_row += 1
+            current_column -= 1
+        elif direction == SOUTHEAST:
+            current_row += 1
+            current_column += 1
 
         # Check if (current_row, current_column) is out of bounds. If so, return False.
         MAX_ROW = WS_ROWS - 1
@@ -51,11 +64,6 @@ def evaluate(word_search, word, direction, row, column):
         if (current_row < 0) or (current_row > MAX_ROW) or (current_column < 0) \
         or (current_column > MAX_COL):
                 return False
-
-        print(f"current_row: {current_row}")
-        print(f"current_column: {current_column}")
-        print(f"WS_ROWS: {WS_ROWS}")
-        print(f"WS_COLS: {WS_COLS}")
 
     return True
 
@@ -81,7 +89,8 @@ def find_words(word_search, list_of_words):
     for row in range(0, len(word_search)):
         for column in range(0, len(word_search[row])):
             for word in list_of_words:
-                for direction in [NORTH, SOUTH, EAST, WEST]:
+                for direction in [NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST,
+                                  SOUTHEAST, SOUTHWEST]:
                     if evaluate(word_search, word, direction, row, column):
                         found[word] = ((row, column), direction)
 

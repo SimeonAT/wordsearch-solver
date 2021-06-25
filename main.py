@@ -57,8 +57,4 @@ if __name__ == "__main__":
     # and pass that into the word search algorithm function
     args = sys.argv[1:]
     locations = main(args)
-    if locations != False:
-        for word, info in locations.items():
-            print(f"{word} with info {info}")
-    else:
-        print("Couldn't find word in the word search")
+    print(locations)
