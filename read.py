@@ -80,10 +80,10 @@ def read_words(file_loc):
     with open(file_loc, "r") as word_file:
         list_of_words = word_file.readlines()
 
-        # Remove the '\n' character from each word and make 
-        # each every letter is lowercase for easy comparision with the word search
+        # - Remove the '\n' character from each word 
+        # - Make each letter is lowercase for easy comparision with the word search
         for i in range(0, len(list_of_words)):
-            list_of_words[i] = list_of_words[i].strip("\n").strip().lower()
+            list_of_words[i] = list_of_words[i].strip("\n").strip().lower().replace(" ", "")
 
         return list_of_words
 
@@ -152,6 +152,7 @@ def read_from_file(file_loc, rows, columns):
         #    with an empty string; Got some help from this link:
         #    https://stackoverflow.com/questions/8270092/remove-all-whitespace-in-a-string
         # 3. Convert all letters to lowercase letters
+        #
         word_search[i] = word_search[i].strip(" ").replace(" ", "")
         word_search[i] = list(word_search[i].lower())
 
@@ -160,5 +161,5 @@ def read_from_file(file_loc, rows, columns):
 
 if __name__ == "__main__":
     word_search = read_word_search(sys.argv[1], sys.argv[2])
-    word_search = read_from_file(sys.argv[1], sys.argv[2], sys.argv[3])
+    # word_search = read_from_file(sys.argv[1], sys.argv[2], sys.argv[3])
     print_word_search(word_search)
