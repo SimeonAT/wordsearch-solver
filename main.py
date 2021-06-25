@@ -55,7 +55,9 @@ def main(arguments):
 
 
 if __name__ == "__main__":
-    # Create an array that has the command line arguments 
-    # except for the filename
+    # Create an array that has the command line arguments except for the filename,
+    # and pass that into the word search algorithm function
     args = sys.argv[1:]
-    main(args)
+    locations = main(args)
+    for word, info in locations.items():
+        print(f"{word} with info {info}")
