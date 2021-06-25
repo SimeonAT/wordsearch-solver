@@ -1,3 +1,4 @@
+""" Constant global variables to indicate which direction to navigate the word search. """
 NORTH = 1
 SOUTH = 2
 EAST = 3
@@ -21,7 +22,35 @@ def evaluate(word_search, word, direction, row, column):
         Returns:
             True if the word is at (row, column) and in the given direction,
             and False otherwise. """
-    raise NotImplementedError
+
+    current_row, current_column = row, column
+
+    # The dimensions of the word search
+    WS_ROWS = len(word_search)
+    WS_COLS = len(word_search[i])
+
+    for i in range(0, len(word)):
+        # Keep looping as long as the "ith" letter matches the letter at 
+        # (current_row, current_column)
+        if word[i] != word_search[current_row][current_column]:
+            return False
+
+        # Examining the next letter, depending on the direction we need to follow
+        if direction == NORTH:
+            current_row -= 1
+        elif direction == SOUTH:
+            current_row += 1
+        elif direction == EAST:
+            current_column += 1
+        elif direction == WEST:
+            current_column -= 1
+
+        # Check if (current_row, current_column) is out of bounds. If so, return False.
+        if (current_row < 0) || (current_row >= WS_ROWS) || (current_column < 0)
+        || (current_row > WS_COLS):
+                return False
+
+    return True
 
 
 def find_words(word_search, list_of_words):
