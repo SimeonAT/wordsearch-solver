@@ -25,57 +25,32 @@ And BOOM, you just created your first app!
 ## **Pseudocode for the "evaluate()" function**
 ```
 def evaluate(grid, word, direction): 
-
     Start at location of first letter in word
 
-
-
     for letter in grid at direction: 
-
          if nth letter matches nth word in word
-
               continue
-
          else: 
-
               return False
-
-
-
+              
     return True 
 ```
 
 ## **Pseudocode for the "word_search()" function**
 ```
 def word_search(grid, words_to_find):
-
     found = [ ] 
-
     
-
     for row in grid: 
-
         for letter in row: 
-
-            if letter == any first letter in
-
-            words in words_to_find: 
-
-                 evaluate(word in question,
-
-                 position of letter, direction) 
-
-            
+            if letter == any first letter in words in words_to_find: 
+                 evaluate(word in question, position of letter, direction)        
 
             If evaluate() found the word: 
-
-                 found.append((word,
-
-                 location of first letter, direction)
-
-       
-
+                 found.append(word, location of first letter, direction)
+                 
     return found 
+    
 ```
 
 # **Sources Used**
