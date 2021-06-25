@@ -20,11 +20,13 @@ And BOOM, you just created your first app!
 *	For now, give the user two options: to scan an image of the word search, or to manually 
 	enter each letter of the word search onto the terminal. Once you have a basic application working, 
 	go back and figure out how to improve PyTesseract in regards to reading a word search.
+*	Modify evaluate() function so that it can evaluate words in the diagonal directions (northeast, northwest,
+	southeast, southwest), rather than just up, down, left, and right.
 
 
 ## **Pseudocode for the "evaluate()" function**
 ```
-def evaluate(grid, word, direction): 
+def evaluate(grid, word, direction, row, column): 
     Start at location of first letter in word
 
     for letter in grid at direction: 
