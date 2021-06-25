@@ -48,8 +48,6 @@ def main(arguments):
         return False
 
     list_of_words = read_words(arguments[4])
-    print_words(list_of_words)
-    print_word_search(word_search)
 
     return find_words(word_search, list_of_words)
 
@@ -59,5 +57,8 @@ if __name__ == "__main__":
     # and pass that into the word search algorithm function
     args = sys.argv[1:]
     locations = main(args)
-    for word, info in locations.items():
-        print(f"{word} with info {info}")
+    if locations != False:
+        for word, info in locations.items():
+            print(f"{word} with info {info}")
+    else:
+        print("Couldn't find word in the word search")

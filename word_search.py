@@ -27,7 +27,7 @@ def evaluate(word_search, word, direction, row, column):
 
     # The dimensions of the word search
     WS_ROWS = len(word_search)
-    WS_COLS = len(word_search[i])
+    WS_COLS = len(word_search[0])
 
     for i in range(0, len(word)):
         # Keep looping as long as the "ith" letter matches the letter at 
