@@ -60,6 +60,11 @@ if __name__ == "__main__":
     for key, value in locations.items():
         coordinates, direction = value
 
+        # Change the row and column values in coordinates to be one-indexed
+        # instead of zero-indexed
+        row = coordinates[0] + 1
+        column = coordinates[1] + 1
+
         # Find the actual direction using the integer/direction format used
         # in word_search.py
         direction_string = None
@@ -67,5 +72,5 @@ if __name__ == "__main__":
                            "NORTHEAST", "SOUTHWEST", "SOUTHEAST"]
         direction_string = mini_hash_table[direction]
 
-        print(f"The word '{key}' found at coordinate {coordinates}", end = " ")
+        print(f"The word '{key}' found at row {row} and column {column}", end = " ")
         print(f"with direction {direction_string}")
