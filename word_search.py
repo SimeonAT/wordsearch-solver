@@ -69,4 +69,13 @@ def find_words(word_search, list_of_words):
             {word : ((x, y) coordinate of first letter, direction)}.
 
             Returns 'False' if the program fails to work. """
-    return False
+    found = {}
+
+    for row in range(0, len(word_search)):
+        for column in range(0, len(word_search[row])):
+            for word in list_of_words:
+                for direction in [NORTH, SOUTH, EAST, WEST]:
+                    if evaluate(word_search, word, direction, row, column):
+                        found[word] = ((row, column), direction)
+
+    return found
