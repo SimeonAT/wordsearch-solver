@@ -46,9 +46,16 @@ def evaluate(word_search, word, direction, row, column):
             current_column -= 1
 
         # Check if (current_row, current_column) is out of bounds. If so, return False.
-        if (current_row < 0) or (current_row >= WS_ROWS) or (current_column < 0) \
-        or (current_row > WS_COLS):
+        MAX_ROW = WS_ROWS - 1
+        MAX_COL = WS_COLS - 1
+        if (current_row < 0) or (current_row > MAX_ROW) or (current_column < 0) \
+        or (current_column > MAX_COL):
                 return False
+
+        print(f"current_row: {current_row}")
+        print(f"current_column: {current_column}")
+        print(f"WS_ROWS: {WS_ROWS}")
+        print(f"WS_COLS: {WS_COLS}")
 
     return True
 
