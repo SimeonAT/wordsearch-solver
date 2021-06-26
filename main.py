@@ -2,6 +2,10 @@ from read import *
 from word_search import *
 import sys
 
+# Debug flag that turns on debugging print statements 
+# when it is set to 'True' 
+DEBUG = True
+
 instructions = """ --- COMMAND LINE INSTRUCTIONS --- \n
 Please note that the program uses PyTesseract to read a word search
 from an image.
@@ -66,7 +70,9 @@ def main(arguments):
 
     list_of_words = read_words(arguments[4])
     found_words = find_words(word_search, list_of_words)
-    check_words(list_of_words, found_words)
+
+    if DEBUG:
+        check_words(list_of_words, found_words)
 
     return found_words
 
