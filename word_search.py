@@ -1,12 +1,11 @@
-""" Constant global variables to indicate which direction to navigate the word search. """
-NORTH = 0
-SOUTH = 1
-EAST = 2
-WEST = 3
-NORTHWEST = 4
-NORTHEAST = 5
-SOUTHWEST = 6
-SOUTHEAST = 7
+DIRECTIONS = {"NORTH": 0,
+              "SOUTH": 1,
+              "EAST": 2,
+              "WEST": 3,
+              "NORTHWEST" : 4,
+              "NORTHEAST" : 5,
+              "SOUTHWEST" : 6,
+              "SOUTHEAST" : 7}
 
 # Debug flags that turns on debugging statements for the corresponding 
 # function when set to 'True'
@@ -49,24 +48,24 @@ def evaluate(word_search, word, direction, row, column):
             return False
 
         # Examining the next letter, depending on the direction we need to follow
-        if direction == NORTH:
+        if direction == DIRECTIONS["NORTH"]:
             current_row -= 1
-        elif direction == SOUTH:
+        elif direction == DIRECTIONS["SOUTH"]:
             current_row += 1
-        elif direction == EAST:
+        elif direction == DIRECTIONS["EAST"]:
             current_column += 1
-        elif direction == WEST:
+        elif direction == DIRECTIONS["WEST"]:
             current_column -= 1
-        elif direction == NORTHWEST:
+        elif direction == DIRECTIONS["NORTHWEST"]:
             current_row -= 1
             current_column -= 1
-        elif direction == NORTHEAST:
+        elif direction == DIRECTIONS["NORTHEAST"]:
             current_row -= 1
             current_column += 1
-        elif direction == SOUTHWEST:
+        elif direction == DIRECTIONS["SOUTHWEST"]:
             current_row += 1
             current_column -= 1
-        elif direction == SOUTHEAST:
+        elif direction == DIRECTIONS["SOUTHEAST"]:
             current_row += 1
             current_column += 1
 
@@ -107,8 +106,7 @@ def find_words(word_search, list_of_words):
             for word in list_of_words:
                 # If the word has already been found, skip it
                 if word not in found.keys():
-                    for direction in [NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST,
-                                      SOUTHEAST, SOUTHWEST]:
+                    for direction in DIRECTIONS.values():
                         evaluate_status = evaluate(word_search, word, direction, row, column)
                         if evaluate_status:
                             found[word] = ((row, column), direction)

@@ -91,7 +91,8 @@ if __name__ == "__main__":
         column = coordinates[1] + 1
 
         # Find the actual direction using the integer/direction format used
-        # in word_search.py
+        # in word_search.py; mini_hash_table holds direction that corresponds to
+        # the integer i at index i.
         direction_string = None
         mini_hash_table = ["NORTH", "SOUTH", "EAST", "WEST", "NORTHWEST",
                            "NORTHEAST", "SOUTHWEST", "SOUTHEAST"]
