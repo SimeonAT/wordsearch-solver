@@ -17,10 +17,10 @@ And BOOM, you just created your first app!
 
 # **To-Do List**
 
-*   Change read.py so that it takes in an image of a word search and outputs the word search into a
+*   ~~Change read.py so that it takes in an image of a word search and outputs the word search into a
     text file. The user can now make any necessary correction to the word search in the text file, and give 
     it to main.py. This allows for a guaranteed way for the word search input to be correct every time (although it 
-    may be tedious to do). 
+    may be tedious to do)~~. 
 
 * 	Devise ways to make sure that pyTesseract can read the word search as accurately as possible. Some ideas/tasks on
 	how to do so are below: 
@@ -80,3 +80,4 @@ def word_search(grid, words_to_find):
 *	 https://realpython.com/python-debugging-pdb/
 *	 https://stackoverflow.com/questions/8270092/remove-all-whitespace-in-a-string
 *	 https://realpython.com/python-sets/
+*    https://www.ionos.com/digitalguide/websites/web-development/markdown/
