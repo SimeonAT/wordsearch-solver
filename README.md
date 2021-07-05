@@ -15,11 +15,19 @@ The word search will be a 2D array, with each letter in word search in one spot.
 And BOOM, you just created your first app! 
 
 
-# **Improvements to Make Later On**
+# **To-Do List**
 
-*	For now, give the user two options: to scan an image of the word search, or to manually 
-	enter each letter of the word search onto the terminal. Once you have a basic application working, 
-	go back and figure out how to improve PyTesseract in regards to reading a word search.
+*   Change read.py so that it takes in an image of a word search and outputs the word search into a
+    text file. The user can now make any necessary correction to the word search in the text file, and give 
+    it to main.py. This allows for a guaranteed way for the word search input to be correct every time (although it 
+    may be tedious to do). 
+
+* 	Devise ways to make sure that pyTesseract can read the word search as accurately as possible. Some ideas/tasks on
+	how to do so are below: 
+	* Rather than passing in the whole word search image into pyTesseract, detect and pass each individual letter into 
+	  pyTesseract so that it is only needs to worry about identifying each letter, rather than the whole text.
+	* Optimize Tesseract to detect letter, rather than words. 
+	* Learn about thresholding and how it can give pyTesseract an easier time reading in a word search image.
 
 ## **Pseudocode for the "evaluate()" function**
 ```
