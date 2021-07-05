@@ -3,7 +3,7 @@ import pytesseract
 from sys import argv
 from debug import *
 
-def read_word_search(file_loc, tesseract_location, training_data):
+def read_from_image(file_loc, tesseract_location, training_data):
     """ This function utilizes Tesseract to read in a word search and
         stores it as a 2D array.
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     # Read word search image and place the text of the word search
     # into an external text file.
     # Command line format: read.py [file loc] [tesseract exec] [training data] [output filename]
-    word_search = read_word_search(argv[1], argv[2], argv[3])
+    word_search = read_from_image(argv[1], argv[2], argv[3])
     with open(argv[4]) as output_file:
         for row in word_search:
             output_file.write(row)

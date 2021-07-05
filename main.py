@@ -14,13 +14,7 @@ from an image.
 To read a word search from a text file:
     python3 main.py -f [file location] [rows] [columns] [list of words]
 
-To read a word search from an image:
-    python3 main.py -i [file location] [tesseract executable] [training data] [list of words]
-
 """
-
-TEXT_FILE = "-f"
-IMAGE = "-i"
 
 def main(arguments):
     """ This function contains the actual implementation of the word search program,
@@ -41,10 +35,7 @@ def main(arguments):
     word_search = None
 
     try:
-        if arguments[0] == TEXT_FILE:
-            word_search = read_from_file(arguments[1], int(arguments[2]), int(arguments[3]))
-        elif arguments[0] == IMAGE:
-            word_search = read_word_search(arguments[1], arguments[2], arguments[3])
+        word_search = read_from_file(arguments[0], int(arguments[1]), int(arguments[2]))
     except Exception as error:
         # Resource Used: https://www.kite.com/python/answers/how-to-catch-and-print
         #                -exception-messages-in-python
