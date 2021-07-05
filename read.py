@@ -42,7 +42,7 @@ def read_from_image(file_loc, tesseract_location, training_data):
     return word_search_matrix
 
 
-def read_from_file(file_loc, rows, columns):
+def read_from_file(file_loc):
     """ This function reads a word search that is stored in a text file.
         Ideal for word searches that could have been read by PyTesseract.
 

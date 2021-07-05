@@ -12,7 +12,7 @@ Please note that the program uses PyTesseract to read a word search
 from an image.
 
 To read a word search from a text file:
-    python3 main.py [file location] [rows] [columns] [list of words]
+    python3 main.py [file location] [list of words]
 
 """
 
@@ -35,7 +35,7 @@ def main(arguments):
     word_search = None
 
     try:
-        word_search = read_from_file(arguments[0], int(arguments[1]), int(arguments[2]))
+        word_search = read_from_file(arguments[0])
     except Exception as error:
         # Resource Used: https://www.kite.com/python/answers/how-to-catch-and-print
         #                -exception-messages-in-python
@@ -43,7 +43,7 @@ def main(arguments):
         print(error)
         return False
 
-    list_of_words = read_words(arguments[4])
+    list_of_words = read_words(arguments[1])
     found_words = find_words(word_search, list_of_words)
 
     if DEBUG:
