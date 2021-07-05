@@ -29,6 +29,9 @@ And BOOM, you just created your first app!
 	* Optimize Tesseract to detect letter, rather than words. 
 	* Learn about thresholding and how it can give pyTesseract an easier time reading in a word search image.
 
+* Once you've done what you reasonably can to optimize the accuracy of pyTesseract, start learning how to use Kivy/Beeware 
+  frameworks to build the GUI of your word search application.
+
 ## **Pseudocode for the "evaluate()" function**
 ```
 def evaluate(grid, word, direction, row, column): 
