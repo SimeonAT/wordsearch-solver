@@ -1,6 +1,6 @@
 import cv2
 import pytesseract
-import sys
+from sys import argv
 
 def display_image(image):
     """ Debugging function that uses OpenCV to display
@@ -163,6 +163,11 @@ def read_from_file(file_loc, rows, columns):
 
 
 if __name__ == "__main__":
-    word_search = read_word_search(sys.argv[1], sys.argv[2], sys.argv[3])
-    # word_search = read_from_file(sys.argv[1], sys.argv[2], sys.argv[3])
-    print_word_search(word_search)
+    # Read word search image and place the text of the word search
+    # into an external text file.
+    # Command line format: read.py [file loc] [tesseract exec] [training data] [output filename]
+    word_search = read_word_search(argv[1], argv[2], argv[3])
+    with open(argv[4]) as output_file:
+        for row in word_search:
+            output_file.write(row)
+            output_file.write("\n")
