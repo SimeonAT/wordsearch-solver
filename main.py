@@ -12,7 +12,7 @@ Please note that the program uses PyTesseract to read a word search
 from an image.
 
 To read a word search from a text file:
-    python3 main.py -f [file location] [rows] [columns] [list of words]
+    python3 main.py [file location] [rows] [columns] [list of words]
 
 """
 

@@ -83,10 +83,11 @@ if __name__ == "__main__":
     # Command line format: read.py [file loc] [tesseract exec] [training data] [output filename]
     try:
         word_search = read_from_image(argv[1], argv[2], argv[3])
+        with open(argv[4], "w") as output_file:
+            for row in word_search:
+                for letter in row:
+                    output_file.write(letter)
+                output_file.write("\n")
     except Exception as error:
         print(error_message)
         print(error)
-    with open(argv[4]) as output_file:
-        for row in word_search:
-            output_file.write(row)
-            output_file.write("\n")
