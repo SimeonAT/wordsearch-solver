@@ -3,6 +3,9 @@ import pytesseract
 from sys import argv
 from debug import *
 
+error_message = """--- Command Line Format ---
+python3 read.py [file loc] [tesseract exec] [training data] [output filename]\n"""
+
 def read_from_image(file_loc, tesseract_location, training_data):
     """ This function utilizes Tesseract to read in a word search and
         stores it as a 2D array.
@@ -81,8 +84,7 @@ if __name__ == "__main__":
     try:
         word_search = read_from_image(argv[1], argv[2], argv[3])
     except Exception as error:
-        print("""--- Command Line Format ---
-              read.py [file loc] [tesseract exec] [training data] [output filename]\n""")
+        print(error_message)
         print(error)
     with open(argv[4]) as output_file:
         for row in word_search:
