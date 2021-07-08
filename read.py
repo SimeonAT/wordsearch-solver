@@ -41,13 +41,26 @@ def read_from_image(file_loc, tesseract_location, training_data, config_file):
     # into an RGB image for Tesseract. I learned about this insight from 
     # https://www.youtube.com/watch?v=6DjFscX4I_c.i
     # 
-    word_search = cv2.cvtColor(word_search, cv2.COLOR_BGR2RGB)
+    word_search = cv2.cvtColor(word_search, cv2.COLOR_BGR2GRAY)
+
+    # Threshold image to make sure the word_search is a pure black and white image,
+    # where the letters are black and the background is white.
+    # - https://docs.opencv.org/4.5.2/d7/d4d/tutorial_py_thresholding.html
+    # - https://www.geeksforgeeks.org/python-thresholding-techniques-using-
+    #   opencv-set-1-simple-thresholding/#:~:text=Thresholding%20is%20a%20
+    #   technique%20in,maximum%20value%20(generally%20255).
+    # 
+    word_search = cv2.GaussianBlur(word_search, (5, 5), 0)
+    _, word_search = cv2.threshold(word_search, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 
     # Resizing the image does help a bit with the accuracy of Tesseract.
     # - https://www.tutorialkart.com/opencv/python/opencv-python-resize-image/
-    dimensions = (word_search.shape[0], word_search.shape[1])
+    dimensions = (int(word_search.shape[0] * 0.5), int(word_search.shape[1] * 0.5))
     word_search = cv2.resize(word_search, dsize=dimensions, interpolation=cv2.INTER_LANCZOS4)
 
+    display_image(word_search)
+
+    word_search = cv2.cvtColor(word_search, cv2.COLOR_GRAY2RGB)
     word_search_matrix = pytesseract.image_to_string(word_search, config=config).split()
     for i in range(0, len(word_search_matrix)):
         # NOTE: Make each letter in the word search lowercase so we can easily compare 
