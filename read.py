@@ -21,7 +21,17 @@ def read_from_image(file_loc, tesseract_location, training_data, config_file):
 
     pytesseract.pytesseract.tesseract_cmd = tesseract_location
 
-    # You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter
+    # You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter.
+    # 
+    # Whitelisting only alphabetical letters in the config file helped make it so
+    # Tesseract doesn't accidentally detect numbers in the word search (when they
+    # should all be letters). 
+    # 
+    # Helpful links:
+    # - https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html
+    #   #dictionaries-word-lists-and-patterns
+    # - https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc
+    # 
     config = r"--tessdata-dir /home/simeon/wordsearch-solver/" + training_data \
             + " --oem 3 --psm 6 CONFIG_FILE " + config_file
 
