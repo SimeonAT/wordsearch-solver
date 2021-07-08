@@ -4,9 +4,9 @@ from sys import argv
 from debug import *
 
 error_message = """--- Command Line Format ---
-python3 read.py [file loc] [tesseract exec] [training data] [output filename]\n"""
+python3 read.py [file loc] [tesseract exec] [training data] [output filename] [config file]\n"""
 
-def read_from_image(file_loc, tesseract_location, training_data):
+def read_from_image(file_loc, tesseract_location, training_data, config_file):
     """ This function utilizes Tesseract to read in a word search and
         stores it as a 2D array.
 
@@ -14,6 +14,7 @@ def read_from_image(file_loc, tesseract_location, training_data):
             the file location of the image.
             the file location of the Tesseract executable
             the Tesseract training data folder to utilize.
+            the Tesseract config file to use.
 
         Returns:
             a 2D matrix representation of the word search. """
@@ -22,7 +23,7 @@ def read_from_image(file_loc, tesseract_location, training_data):
 
     # You need the ABSOLUTE PATH of tessdata for the "tessdata-dir" parameter
     config = r"--tessdata-dir /home/simeon/wordsearch-solver/" + training_data \
-            + " --oem 3 --psm 6 load_system_dawg=false load_freq_dawg=false"
+            + " --oem 3 --psm 6 CONFIG_FILE " + config_file
 
     word_search = cv2.imread(file_loc)
 
@@ -80,9 +81,10 @@ def read_from_file(file_loc):
 if __name__ == "__main__":
     # Read word search image and place the text of the word search
     # into an external text file.
-    # Command line format: read.py [file loc] [tesseract exec] [training data] [output filename]
+    # Command line format: 
+    #   read.py [file loc] [tesseract exec] [training data] [output filename] [config file]
     try:
-        word_search = read_from_image(argv[1], argv[2], argv[3])
+        word_search = read_from_image(argv[1], argv[2], argv[3], argv[5])
         with open(argv[4], "w") as output_file:
             for row in word_search:
                 for letter in row:
