@@ -43,6 +43,11 @@ def read_from_image(file_loc, tesseract_location, training_data, config_file):
     # 
     word_search = cv2.cvtColor(word_search, cv2.COLOR_BGR2RGB)
 
+    # Resizing the image does help a bit with the accuracy of Tesseract.
+    # - https://www.tutorialkart.com/opencv/python/opencv-python-resize-image/
+    dimensions = (word_search.shape[0], word_search.shape[1])
+    word_search = cv2.resize(word_search, dsize=dimensions, interpolation=cv2.INTER_LANCZOS4)
+
     word_search_matrix = pytesseract.image_to_string(word_search, config=config).split()
     for i in range(0, len(word_search_matrix)):
         # NOTE: Make each letter in the word search lowercase so we can easily compare 
