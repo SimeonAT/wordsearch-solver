@@ -14,9 +14,11 @@ def read_from_image(file_loc, tesseract_location, training_data, config_file):
 
     word_search = cv2.imread(file_loc)
     word_search = cv2.cvtColor(word_search, cv2.COLOR_BGR2GRAY)
+    word_search = cv2.adaptiveThreshold(word_search, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, \
+                                        cv2.THRESH_BINARY, 11, 2)
 
     display_image(word_search)
-	
+
     word_search_matrix = pytesseract.image_to_string(word_search, config=config).split()
     for i in range(0, len(word_search_matrix)):
         word_search_matrix[i] = list(word_search_matrix[i].lower())
