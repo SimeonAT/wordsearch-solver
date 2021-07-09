@@ -3,8 +3,8 @@ import pytesseract
 from sys import argv
 from debug import *
 
-error_message = """--- Command Line Format ---
-python3 read_exp.py [file loc] [tesseract exec] [training data] [output filename] [config file]\n"""
+# --- COMMAND LINE FORMAT --- 
+# python3 read_exp.py [file loc] [tesseract exec] [training data] [output filename] [config file]
 
 def read_from_image(file_loc, tesseract_location, training_data, config_file):
     pytesseract.pytesseract.tesseract_cmd = tesseract_location
@@ -22,13 +22,10 @@ def read_from_image(file_loc, tesseract_location, training_data, config_file):
 
 
 if __name__ == "__main__":
-    try:
-        word_search = read_from_image(argv[1], argv[2], argv[3], argv[5])
-        with open(argv[4], "w") as output_file:
-            for row in word_search:
-                for letter in row:
-                    output_file.write(letter)
-                output_file.write("\n")
-    except Exception as error:
-        print(error_message)
-        print(error)
+    word_search = read_from_image(argv[1], argv[2], argv[3], argv[5])
+    with open(argv[4], "w") as output_file:
+        for row in word_search:
+            for letter in row:
+                output_file.write(letter)
+            output_file.write("\n")
+
