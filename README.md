@@ -22,15 +22,17 @@ And BOOM, you just created your first app!
     it to main.py. This allows for a guaranteed way for the word search input to be correct every time (although it 
     may be tedious to do)~~. 
 
-* 	Devise ways to make sure that pyTesseract can read the word search as accurately as possible. Some ideas/tasks on
-	how to do so are below: 
-	* Rather than passing in the whole word search image into pyTesseract, detect and pass each individual letter into 
-	  pyTesseract so that it is only needs to worry about identifying each letter, rather than the whole text.
-	* Optimize Tesseract to detect letter, rather than words. 
-	* Learn about thresholding and how it can give pyTesseract an easier time reading in a word search image.
+* 	Find 10 test cases and use them to test and debug your word search solver algorithm. Be sure cite each test case that
+	you use. 
 
-* Once you've done what you reasonably can to optimize the accuracy of pyTesseract, start learning how to use Kivy/Beeware 
-  frameworks to build the GUI of your word search application.
+* Start learning how to use Kivy/Beeware frameworks to build the GUI of your word search application. Create a basic GUI where
+  the user types out the both the word search and the list of words to find onto two different respective textboxes, and the program
+  will use those two inputs to solve the word search. 
+ 
+* Implement the current yet buggy implementation for reading a word search image. Come back to improve this part of the application
+  later once you know more about Computer Vision and Machine Learning.
+  	* This would be a good time to create a new branch that contains the implementation for reading
+  	  a word search image. 
 
 ## **Pseudocode for the "evaluate()" function**
 ```
