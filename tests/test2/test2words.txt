@@ -1,0 +1,35 @@
+alphabet
+Art
+backpack
+books
+classroom
+crayons
+desk
+Drama
+elementary
+English
+friends
+Geography
+grades
+Health
+History
+homework
+Language Arts
+learn
+library
+Math
+Music
+numbers
+pencil
+Physical Education
+reading
+recess
+school
+scissors
+Science
+Social Studies
+Spelling 
+students
+subjects
+teacher 
+writing
