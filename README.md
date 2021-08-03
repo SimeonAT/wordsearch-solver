@@ -83,3 +83,6 @@ def word_search(grid, words_to_find):
 *	 https://stackoverflow.com/questions/8270092/remove-all-whitespace-in-a-string
 *	 https://realpython.com/python-sets/
 *    https://www.ionos.com/digitalguide/websites/web-development/markdown/
+*	https://linuxhint.com/bash-variable-name-rules-legal-illegal/
+*	https://www.cyberciti.biz/faq/bash-for-loop/
+*	https://bash.cyberciti.biz/guide/Shell_Comments
