@@ -5,7 +5,7 @@ import sys
 
 # Debug flag that turns on debugging print statements 
 # when it is set to 'True' 
-DEBUG = False
+DEBUG = True
 
 instructions = """ --- COMMAND LINE INSTRUCTIONS --- \n
 Please note that the program uses PyTesseract to read a word search

@@ -103,7 +103,10 @@ def check_words(words_to_find, found_words):
     # Got some help here: https://realpython.com/python-sets/
     # 
     not_found_words = words_to_find - found_words
+    if not_found_words == set():
+        not_found_words = "All words have been found"
+
     print(f"Not found words: {not_found_words}")
     print(f"Number of words to find: {len(words_to_find)}")
-    print(f"Number of words found: {len(found_words)}")
+    print(f"Number of words found: {len(found_words)}\n")
     return
