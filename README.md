@@ -22,7 +22,7 @@ And BOOM, you just created your first app!
     it to main.py. This allows for a guaranteed way for the word search input to be correct every time (although it 
     may be tedious to do)~~. 
 
-* 	Find 10 test cases and use them to test and debug your word search solver algorithm. Be sure cite each test case that
+* 	Find 7 test cases and use them to test and debug your word search solver algorithm. Be sure cite each test case that
 	you use. 
 
 * Start learning how to use Kivy/Beeware frameworks to build the GUI of your word search application. Create a basic GUI where
